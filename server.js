@@ -13,7 +13,7 @@ const port = 3000;
 // Serve static files (for the audio file)
 app.use(express.static('public'));
 
-app.get('/run-script', async (req, res) => {
+app.get('/run-script', async (res) => {
   try {
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
