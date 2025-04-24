@@ -3,23 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Audio Test</title>
+  <title>CONAPE Date Notifier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Hello!</h1>
-  <button id="playAudioButton">Play Sound</button>
+  <header>
+    <div>
+      <div>
+        <h1 class="title">CONAPE Date Notifier</h1>
+        <p class="slogan p_margin_override">Nunca pierdas una fecha de nuevo...</p>
+      </div>
+      <div style="padding-top: 1.5rem;">
+        <p class="p_margin_override">Haz click en este botón para iniciar</p>
+        <button id="playAudioButton" class="main_button">Inicializar Notificador</button>
+      </div>
+      <div class="more_info">
+        <p style="margin-bottom: 2rem;">Desliza hacia abajo para más información</p>
+        <i class="fas fa-arrow-down fa-2x bounce"></i>
+      </div>
+    </div>
+  </header>
+  <div class="important_content">
+    <div>
+      <h3>IMPORTANTE</h3>
+      <p>*Es necesario <b>mantener esta página abierta</b> para que el proceso funcione*</p>
+      <p>*Esta <b>no es una aplicación oficial de CONAPE</b> ni está relacionada de ningún modo con esta entidad*</p>
+      <p>*Esta aplicación <b>no recopila ni modifica datos de ningún tipo</b>, solo se basa en los estilos de los elementos HTML para interactuar con estos*</p>
+    </div>
+  </div>
+  <main>
+    <div class="main_content">
+      <h2>Funcionamiento</h2>
 
+      <div>
+        <div class="summary">
+          <h3>Resumen:</h3>
+          <p>El programa realiza un <b>chequeo constante</b> del <b>calendario de la sección 'Préstamo aprobado'</b> en la página de <b>CONAPE</b></p>
+          <p>Si detecta una fecha de cita disponible, <b>se envía una alerta a la página y se reproduce un sonido de alerta</b>.</p>
+        </div>
+        
+        <p>Al presionar el botón <b>'Inicializar Notificador'</b>, se abrirá una <b>nueva pestaña en la página de CONAPE</b> y el programa se encargara de presionar los botones necesarios <b>de forma automática</b> y continuará con este proceso hasta encontrar una fecha</p>
+        <p>Una vez que se encuentre una fecha disponible, <b>se le notificará por medio de un sonido de campana proveniente de esta página web (CONAPE Date Notifier)</b> además de una alerta.</p>
+        <p>Para que seguidamente agende su cita en la fecha disponible</p>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>© 2025 CONAPE Date Notifier. All rights reserved.</p>
+    <p>Developed by Delta Development and Design | Joseph Ugalde Murillo</p>
+  </footer>
   <script>
     document.getElementById('playAudioButton').addEventListener('click', async function() {
       try {
-        // Send request to the backend server to run the Puppeteer script
         const response = await fetch('http://localhost:3000/run-script');
         const data = await response.text();
-        console.log(data); // Log the server response
+        alert(data);
+        console.log(data);
       } catch (err) {
         console.error('Error al ejecutar el script:', err);
+        alert('Hubo un error ejecutando el script.');
       }
-    });
+    });    
   </script>
 </body>
 </html>

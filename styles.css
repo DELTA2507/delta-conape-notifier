@@ -1,0 +1,140 @@
+.raleway-font {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+root {
+    --conape-blue: #0e266a;
+    --conape-yellow: #ffb91f;
+}
+
+html, body {
+    font-family: "Raleway", sans-serif;
+    font-weight: 400; /* Default weight */
+    margin: 0;
+    padding: 0 ;
+    height: 100%;
+    width: 100%;
+}
+
+.p_margin_override {
+    margin: 0 0 0 0;
+}
+
+header {
+    background-color: #252530;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: white;
+    margin: 0 0 0 0;
+}
+
+.slogan {
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.main_button {
+    background-color: #ffb91f;
+    color: #0e266a;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 5px;
+    border-radius: 2rem;
+}
+
+.more_info {
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+main {
+    background-color: rgb(51, 51, 66);
+    color: white;
+    padding: 1.5rem 2rem 10rem 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_content {
+    padding: 2rem;
+    text-align: left;
+    text-wrap: balance;
+    font-size: large;
+    line-height: 2rem;
+}
+
+.summary {
+    background-color: #54546b;
+    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+    border-radius: 2rem;
+    text-wrap: balance;
+    font-size: x-large;
+    line-height: 2rem;
+}
+
+.important_content {
+    background-color: #54546b;
+    color: white;
+    padding: 2rem 2rem 2rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+}
+
+footer {
+    background-color: #1a1a22;
+    color: white;
+    padding: 20px 20px 20px 20px;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);  /* Initial position */
+    }
+    50% {
+        transform: translateY(-1.5rem); /* Move up */
+    }
+    100% {
+        transform: translateY(0);  /* Return to original position */
+    }
+}
+  
+.bounce {
+    display: inline-block;
+    animation: bounce 2s ease-in-out infinite; /* Apply the bounce animation */
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    .title {
+        font-size: 4rem; /* Font size for big screens */
+    }
+}
