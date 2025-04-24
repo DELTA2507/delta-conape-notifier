@@ -1,8 +1,12 @@
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin())
-
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+const path = require('path')
+const player = require('play-sound')()
+const mp3Path = path.join(__dirname, 'successBell.mp3')
+const ffplayPath = path.join(__dirname, 'bin', 'ffplay.exe')
 
 async function run () {
     const browser = await puppeteer.launch({ headless: false });
@@ -13,14 +17,14 @@ async function run () {
     let inputOption = "li[class='el-select-dropdown__item']"
     let button = "button[class='el-button el-button--primary']"
 
-    await sleep(5000);
+    await sleep(1000);
 
     await page.waitForSelector(input);
     await page.evaluate((input) => {
         document.querySelector(input).click()
     }, input)
 
-    await sleep(5000);
+    await sleep(1000);
 
     await page.waitForSelector(inputOption);
     await page.evaluate(() => {
@@ -31,7 +35,7 @@ async function run () {
         });
     });
 
-    await sleep(2000);
+    await sleep(1000);
 
     await page.waitForSelector(button);
     await page.evaluate(() => {
@@ -41,6 +45,16 @@ async function run () {
             if (element) element.click();
         });
     });
+
+    await sleep(1000);
+
+    player.play(mp3Path, { player: ffplayPath }, (err) => {
+        if (err) {
+            console.error('Error al reproducir sonido:', err)
+        } else {
+            console.log('¡Sonido reproducido con éxito!')
+        }
+    })
 }
 
 run()

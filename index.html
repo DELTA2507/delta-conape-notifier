@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Test</title>
+</head>
+<body>
+  <h1>Hello!</h1>
+  <button id="playAudioButton">Play Sound</button>
+
+  <script>
+    document.getElementById('playAudioButton').addEventListener('click', async function() {
+      try {
+        // Send request to the backend server to run the Puppeteer script
+        const response = await fetch('http://localhost:3000/run-script');
+        const data = await response.text();
+        console.log(data); // Log the server response
+      } catch (err) {
+        console.error('Error al ejecutar el script:', err);
+      }
+    });
+  </script>
+</body>
+</html>
